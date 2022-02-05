@@ -1,0 +1,42 @@
+C:\Users\sandeepa\Desktop\System 1\GroceryManegmentSystem\GroceryManegmentSystem\obj\Debug\GroceryManegmentSystem.Admin.resources
+C:\Users\sandeepa\Desktop\System 1\GroceryManegmentSystem\GroceryManegmentSystem\obj\Debug\GroceryManegmentSystem.Cashier.resources
+C:\Users\sandeepa\Desktop\System 1\GroceryManegmentSystem\GroceryManegmentSystem\obj\Debug\GroceryManegmentSystem.Login.resources
+C:\Users\sandeepa\Desktop\System 1\GroceryManegmentSystem\GroceryManegmentSystem\obj\Debug\GroceryManegmentSystem.Properties.Resources.resources
+C:\Users\sandeepa\Desktop\System 1\GroceryManegmentSystem\GroceryManegmentSystem\obj\Debug\GroceryManegmentSystem.Staff_registration.resources
+C:\Users\sandeepa\Desktop\System 1\GroceryManegmentSystem\GroceryManegmentSystem\obj\Debug\GroceryManegmentSystem.Stock_Keeper.resources
+C:\Users\sandeepa\Desktop\System 1\GroceryManegmentSystem\GroceryManegmentSystem\obj\Debug\GroceryManegmentSystem.csproj.GenerateResource.cache
+C:\Users\sandeepa\Desktop\System 1\GroceryManegmentSystem\GroceryManegmentSystem\obj\Debug\GroceryManegmentSystem.csproj.CoreCompileInputs.cache
+C:\Users\sandeepa\Desktop\System 1\GroceryManegmentSystem\GroceryManegmentSystem\bin\Debug\GroceryManegmentSystem.exe.config
+C:\Users\sandeepa\Desktop\System 1\GroceryManegmentSystem\GroceryManegmentSystem\bin\Debug\GroceryManegmentSystem.exe
+C:\Users\sandeepa\Desktop\System 1\GroceryManegmentSystem\GroceryManegmentSystem\bin\Debug\GroceryManegmentSystem.pdb
+C:\Users\sandeepa\Desktop\System 1\GroceryManegmentSystem\GroceryManegmentSystem\obj\Debug\GroceryManegmentSystem.exe
+C:\Users\sandeepa\Desktop\System 1\GroceryManegmentSystem\GroceryManegmentSystem\obj\Debug\GroceryManegmentSystem.pdb
+C:\Users\sandeepa\Desktop\System 1\GroceryManegmentSystem\GroceryManegmentSystem\bin\Debug\DB.accdb
+C:\Users\sandeepa\Desktop\System 1\GroceryManegmentSystem\GroceryManegmentSystem\obj\Debug\GroceryManegmentSystem.ForgetPassword.resources
+C:\Users\sandeepa\Desktop\System 1\GroceryManegmentSystem\GroceryManegmentSystem\obj\Debug\GroceryManegmentSystem.csproj.AssemblyReference.cache
+C:\Users\pulat\Downloads\C# Stock project6\System 1\GroceryManegmentSystem\GroceryManegmentSystem\bin\Debug\DB.accdb
+C:\Users\pulat\Downloads\C# Stock project6\System 1\GroceryManegmentSystem\GroceryManegmentSystem\bin\Debug\GroceryManegmentSystem.exe.config
+C:\Users\pulat\Downloads\C# Stock project6\System 1\GroceryManegmentSystem\GroceryManegmentSystem\bin\Debug\GroceryManegmentSystem.exe
+C:\Users\pulat\Downloads\C# Stock project6\System 1\GroceryManegmentSystem\GroceryManegmentSystem\bin\Debug\GroceryManegmentSystem.pdb
+C:\Users\pulat\Downloads\C# Stock project6\System 1\GroceryManegmentSystem\GroceryManegmentSystem\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\pulat\Downloads\C# Stock project6\System 1\GroceryManegmentSystem\GroceryManegmentSystem\bin\Debug\itextsharp.dll
+C:\Users\pulat\Downloads\C# Stock project6\System 1\GroceryManegmentSystem\GroceryManegmentSystem\bin\Debug\itextsharp.xml
+C:\Users\pulat\Downloads\C# Stock project6\System 1\GroceryManegmentSystem\GroceryManegmentSystem\bin\Debug\Interop.AcroPDFLib.dll
+C:\Users\pulat\Downloads\C# Stock project6\System 1\GroceryManegmentSystem\GroceryManegmentSystem\bin\Debug\AxInterop.AcroPDFLib.dll
+C:\Users\pulat\Downloads\C# Stock project6\System 1\GroceryManegmentSystem\GroceryManegmentSystem\obj\Debug\Interop.AcroPDFLib.dll
+C:\Users\pulat\Downloads\C# Stock project6\System 1\GroceryManegmentSystem\GroceryManegmentSystem\obj\Debug\AxInterop.AcroPDFLib.dll
+C:\Users\pulat\Downloads\C# Stock project6\System 1\GroceryManegmentSystem\GroceryManegmentSystem\obj\Debug\GroceryManegmentSystem.csproj.ResolveComReference.cache
+C:\Users\pulat\Downloads\C# Stock project6\System 1\GroceryManegmentSystem\GroceryManegmentSystem\obj\Debug\GroceryManegmentSystem.Admin.resources
+C:\Users\pulat\Downloads\C# Stock project6\System 1\GroceryManegmentSystem\GroceryManegmentSystem\obj\Debug\GroceryManegmentSystem.Cashier.resources
+C:\Users\pulat\Downloads\C# Stock project6\System 1\GroceryManegmentSystem\GroceryManegmentSystem\obj\Debug\GroceryManegmentSystem.ForgetPassword.resources
+C:\Users\pulat\Downloads\C# Stock project6\System 1\GroceryManegmentSystem\GroceryManegmentSystem\obj\Debug\GroceryManegmentSystem.Form1.resources
+C:\Users\pulat\Downloads\C# Stock project6\System 1\GroceryManegmentSystem\GroceryManegmentSystem\obj\Debug\GroceryManegmentSystem.Login.resources
+C:\Users\pulat\Downloads\C# Stock project6\System 1\GroceryManegmentSystem\GroceryManegmentSystem\obj\Debug\GroceryManegmentSystem.Properties.Resources.resources
+C:\Users\pulat\Downloads\C# Stock project6\System 1\GroceryManegmentSystem\GroceryManegmentSystem\obj\Debug\GroceryManegmentSystem.Staff_registration.resources
+C:\Users\pulat\Downloads\C# Stock project6\System 1\GroceryManegmentSystem\GroceryManegmentSystem\obj\Debug\GroceryManegmentSystem.Stock_Keeper.resources
+C:\Users\pulat\Downloads\C# Stock project6\System 1\GroceryManegmentSystem\GroceryManegmentSystem\obj\Debug\GroceryManegmentSystem.csproj.GenerateResource.cache
+C:\Users\pulat\Downloads\C# Stock project6\System 1\GroceryManegmentSystem\GroceryManegmentSystem\obj\Debug\GroceryManegmentSystem.csproj.CoreCompileInputs.cache
+C:\Users\pulat\Downloads\C# Stock project6\System 1\GroceryManegmentSystem\GroceryManegmentSystem\obj\Debug\GroceryManegmentSystem.csproj.CopyComplete
+C:\Users\pulat\Downloads\C# Stock project6\System 1\GroceryManegmentSystem\GroceryManegmentSystem\obj\Debug\GroceryManegmentSystem.exe
+C:\Users\pulat\Downloads\C# Stock project6\System 1\GroceryManegmentSystem\GroceryManegmentSystem\obj\Debug\GroceryManegmentSystem.pdb
+C:\Users\pulat\Downloads\C# Stock project6\System 1\GroceryManegmentSystem\GroceryManegmentSystem\obj\Debug\GroceryManegmentSystem.csproj.AssemblyReference.cache
