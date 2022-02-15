@@ -36,8 +36,7 @@ namespace GroceryManegmentSystem
                 RefreshUserTable();
                 
                 
-               // txtusername.Text = " ";
-              //  txtpassword.Text = " ";
+              
             }
 
             

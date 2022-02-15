@@ -45,8 +45,7 @@ namespace GroceryManegmentSystem
             try
             {
                 DataGridViewRow row = this.dataGridView2.Rows[e.RowIndex];
-                //MessageBox.Show("Error "); 
-                //MessageBox.Show(row.Cells["Id"].Value.ToString()); 
+                
 
                 findId = row.Cells["Id"].Value.ToString();
                 findQuantity = row.Cells["Quantity"].Value.ToString();
