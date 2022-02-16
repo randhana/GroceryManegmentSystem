@@ -39,6 +39,9 @@ namespace GroceryManegmentSystem
             else
             {
                 MessageBox.Show(" Invalid usernamme");
+               // MessageBox.Show(Decrypt("MA=="));
+
+
             }
 
             
@@ -53,24 +56,20 @@ namespace GroceryManegmentSystem
             OleDbCommand command = new OleDbCommand("SELECT  * from  Users", connection);
             reader = command.ExecuteReader();
 
-            
+           
             while (reader.Read())
 
             {
+                //string d = reader[2].ToString();
+                //MessageBox.Show(Decrypt(d));
+                //MessageBox.Show(Decrypt(d));
                 //String userdata = "User: " + reader[1].ToString() + "\npass: " + reader[2].ToString();
-              
-                if ((txtusername.Text == reader[1].ToString()) && (txtpassword.Text == reader[2].ToString()))
+
+                if ( (txtusername.Text == reader[1].ToString()) && (txtpassword.Text == Decrypt(reader[2].ToString())) )
 
                 {
                     
-
-
-
-
-
-
-
-                    if (txtusername.Text == ("admin") & txtpassword.Text == reader[2].ToString())
+                    if (txtusername.Text == ("admin") & txtpassword.Text == Decrypt(reader[2].ToString()))
                     {
 
                         this.Visible = false;
@@ -79,7 +78,7 @@ namespace GroceryManegmentSystem
                         break;
 
                     }
-                    if (txtusername.Text == ("Stock keeper") & txtpassword.Text == reader[2].ToString())
+                    if (txtusername.Text == ("Stock keeper") & txtpassword.Text == Decrypt(reader[2].ToString()))
                     {
                         this.Visible = false;
                         Stock_Keeper stock_Keeper = new Stock_Keeper();
@@ -87,7 +86,7 @@ namespace GroceryManegmentSystem
                         stock_Keeper.LoadStockTableData();
                         break;
                     }
-                    if (txtusername.Text == ("Cashier") & txtpassword.Text == reader[2].ToString())
+                    if (txtusername.Text == ("Cashier") & txtpassword.Text == Decrypt(reader[2].ToString()))
                     {
                         this.Visible = false;
                         Cashier cashier = new Cashier();
@@ -127,11 +126,32 @@ namespace GroceryManegmentSystem
 
         }
 
+        public string Encrypt(string s)
+        {
+            byte[] b = System.Text.ASCIIEncoding.ASCII.GetBytes(s);
+            string encrypted = Convert.ToBase64String(b);
+            return encrypted;
+        }
+
+        public string Decrypt(string s)
+        {
+            byte[] b;
+            string decrypted;
+            try
+            {
+                b = Convert.FromBase64String(s);
+                decrypted = System.Text.ASCIIEncoding.ASCII.GetString(b);
+            }
+            catch (FormatException fe)
+            {
+                decrypted = "";
+            }
+            return decrypted;
+        }
 
 
 
-
-        private void chkshowpassword_CheckedChanged(object sender, EventArgs e)
+            private void chkshowpassword_CheckedChanged(object sender, EventArgs e)
         {
             if (chkshowpassword.Checked)
             {
