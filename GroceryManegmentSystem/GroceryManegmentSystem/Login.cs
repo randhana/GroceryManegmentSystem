@@ -6,6 +6,7 @@ using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -30,14 +31,14 @@ namespace GroceryManegmentSystem
                 MessageBox.Show(" Please enter usernamme & password");
             }
 
+            else if (IsUsername(txtusername.Text))
+            {
+              //  MessageBox.Show(" Valid usernamme");
+                RefreshUserTable();
+            }
             else
             {
-                
-
-                RefreshUserTable();
-                
-                
-              
+                MessageBox.Show(" Invalid usernamme");
             }
 
             
@@ -114,6 +115,21 @@ namespace GroceryManegmentSystem
            // RefreshUserTable();
             
         }
+
+        public static bool IsUsername(string username)
+        {
+
+            string pattern;
+
+            pattern = "[a-zA-Z0-9]{3,10}$";
+            Regex regex = new Regex(pattern);
+            return regex.IsMatch(username);
+
+        }
+
+
+
+
 
         private void chkshowpassword_CheckedChanged(object sender, EventArgs e)
         {
