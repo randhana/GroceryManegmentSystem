@@ -19,6 +19,8 @@ namespace GroceryManegmentSystem
             InitializeComponent();
         }
 
+       
+
         private void btnlogin_Click(object sender, EventArgs e)
         {
             
@@ -125,6 +127,8 @@ namespace GroceryManegmentSystem
             return regex.IsMatch(username);
 
         }
+
+      
 
         public string Encrypt(string s)
         {

@@ -6,7 +6,8 @@ using System.Data.OleDb;
 using System.Drawing; 
 using System.Linq;
 using System.Net;
-using System.Text; 
+using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks; 
 using System.Windows.Forms; 
  
@@ -77,9 +78,13 @@ namespace GroceryManegmentSystem
                         categoryid = "OT";
                     }
                     
+                    if ((!IsString(item)) && (IsDigitsOnly(quantity)))
+                    {
+
+                        
 
 
-                    String my_querry = "INSERT INTO Stock(Categoryid,Category,Item,Quantity,Price)VALUES('" + categoryid+ "','" + category + "','" + item + "','" + quantity + "','" + price + "')";
+                        String my_querry = "INSERT INTO Stock(Categoryid,Category,Item,Quantity,Price)VALUES('" + categoryid+ "','" + category + "','" + item + "','" + quantity + "','" + price + "')";
 
                     OleDbCommand cmd = new OleDbCommand(my_querry, connection);
                     cmd.ExecuteNonQuery();
@@ -90,7 +95,11 @@ namespace GroceryManegmentSystem
                     LoadStockTableData();
 
                     ClearTextBoxs();
-
+                    }
+                    else
+                    {
+                        MessageBox.Show("Inputs not allowed");
+                    }
 
                 }
                 catch (Exception ex)
@@ -121,24 +130,30 @@ namespace GroceryManegmentSystem
                     String price = txtPrice.Text.ToString();
 
 
+                    if ((!IsString(item)) && (IsDigitsOnly(quantity)))
+                    {
 
-                    String my_querry = "UPDATE Stock set Categoryid='" + categoryId + "', Category='" + category + "', Item='" + item + "',Quantity='" + quantity + "',Price='" + price + "' where Id=" + indexId + " ";
-
-
-
-                    OleDbCommand cmd = new OleDbCommand(my_querry, connection2);
-                    cmd.ExecuteNonQuery();
-
-                    MessageBox.Show("Data saved successfuly...!");
-                    findId = "0";
-                    findcategoryId = "0";
-
-                    //Load all data from table 
-                    LoadStockTableData();
-
-                    ClearTextBoxs();
+                        String my_querry = "UPDATE Stock set Categoryid='" + categoryId + "', Category='" + category + "', Item='" + item + "',Quantity='" + quantity + "',Price='" + price + "' where Id=" + indexId + " ";
 
 
+
+                        OleDbCommand cmd = new OleDbCommand(my_querry, connection2);
+                        cmd.ExecuteNonQuery();
+
+                        MessageBox.Show("Data saved successfuly...!");
+                        findId = "0";
+                        findcategoryId = "0";
+
+                        //Load all data from table 
+                        LoadStockTableData();
+
+                        ClearTextBoxs();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Inputs not allowed");
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -146,15 +161,33 @@ namespace GroceryManegmentSystem
                 }
 
                 
-                finally
-                {
-                    connection2.Close();
-                    findId = "0";
-                    findcategoryId = "0";
-                }
+                //finally
+                //{
+                //    connection2.Close();
+                //    findId = "0";
+                //    findcategoryId = "0";
+                //}
 
             }
         }
+
+        // validate string conains numbers or any special charactors
+        public static bool IsString(string str)
+        {
+            string pattern;
+
+            pattern = "[^A-Za-z0-9]";
+            Regex regex = new Regex(pattern);
+
+            return regex.IsMatch(str);
+        }
+
+        public static bool IsDigitsOnly(string str)
+        {
+            return str.All(Char.IsDigit);
+        }
+
+
         public void Delete_Stock_Field()
         {
             OleDbConnection connection = new OleDbConnection(@"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = C:\Users\pulat\Downloads\C# Stock project6\System 1\DB.accdb");
