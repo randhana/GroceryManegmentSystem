@@ -103,7 +103,7 @@ namespace GroceryManegmentSystem
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(70, 21);
+            this.label11.Location = new System.Drawing.Point(70, 29);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(181, 16);
             this.label11.TabIndex = 0;

@@ -27,7 +27,6 @@ namespace GroceryManegmentSystem
         public string cliname;
 
         
-        
         ArrayList PrintList = new ArrayList();
 
         
@@ -137,7 +136,7 @@ namespace GroceryManegmentSystem
                     
 
                     arrayPDF(item,quantity,price);
-                  //  MessageBox.Show("arraPDF after");
+                  
 
 
                     String my_querry = "INSERT INTO Cashier(ClientName,BDate,BillingDate,Item,Quantity,Price)VALUES('" + client + "','" + bdate + "','" + billing + "','" + item + "','" + quantity + "','" + price + "')";
@@ -186,9 +185,7 @@ namespace GroceryManegmentSystem
             PrintList.Add(quntity);
             PrintList.Add(price);
 
-            //String item1 = PrintList[0].ToString();
-            //String quantity1 = PrintList[1].ToString();
-            //String price1 = PrintList[2].ToString();
+            
 
             
             //MessageBox.Show("Array before");
