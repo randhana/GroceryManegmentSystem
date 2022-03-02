@@ -33,6 +33,7 @@ namespace GroceryManegmentSystem
             axAcroPDF1.src = "C:\\Users\\pulat\\Downloads\\C# Stock project6\\System 1\\GroceryManegmentSystem\\GroceryManegmentSystem\\bin\\Debug\\"+s+".pdf";
             axAcroPDF1.Show();
             billname = " ";
+
             return null;
             
         }

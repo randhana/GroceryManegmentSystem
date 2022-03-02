@@ -38,7 +38,7 @@ namespace GroceryManegmentSystem
 
             {
 
-                //MessageBox.Show(sendFindId(findId)); 
+                 
 
 
                 OleDbConnection connection = new OleDbConnection(@"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = C:\Users\pulat\Downloads\C# Stock project6\System 1\DB.accdb");
@@ -84,7 +84,7 @@ namespace GroceryManegmentSystem
                         
 
 
-                        String my_querry = "INSERT INTO Stock(Categoryid,Category,Item,Quantity,Price)VALUES('" + categoryid+ "','" + category + "','" + item + "','" + quantity + "','" + price + "')";
+                    String my_querry = "INSERT INTO Stock(Categoryid,Category,Item,Quantity,Price)VALUES('" + categoryid+ "','" + category + "','" + item + "','" + quantity + "','" + price + "')";
 
                     OleDbCommand cmd = new OleDbCommand(my_querry, connection);
                     cmd.ExecuteNonQuery();
