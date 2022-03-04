@@ -6,7 +6,8 @@ using System.Windows.Forms;
 
 namespace GroceryManegmentSystem
 {
-    static class Program
+    
+	static class Program
     {
         /// <summary>
         /// The main entry point for the application.
