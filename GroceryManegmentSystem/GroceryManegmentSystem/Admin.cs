@@ -130,10 +130,7 @@ namespace GroceryManegmentSystem
                 command.CommandText = query;
 
 
-                //OleDbDataAdapter da = new OleDbDataAdapter(command);
-                //DataTable dt = new DataTable();
-                //da.Fill(dt);
-                //dataGridView1.DataSource = dt;
+               
 
                 OleDbDataReader reader = null;
                 reader = command.ExecuteReader();
