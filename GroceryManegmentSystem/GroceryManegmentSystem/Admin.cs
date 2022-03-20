@@ -16,6 +16,7 @@ namespace GroceryManegmentSystem
         public Admin()
         {
             InitializeComponent();
+
         }
 
         private void staffToolStripMenuItem_Click(object sender, EventArgs e)
@@ -61,7 +62,7 @@ namespace GroceryManegmentSystem
             //    //String query = "select * from Stock";
             //    //command.CommandText = query;
 
-            //    //    OleDbDataAdapter da = new OleDbDataAdapter(command);
+            //       OleDbDataAdapter da = new OleDbDataAdapter(command);
             //        DataTable dt = new DataTable();
             //    //    da.Fill(dt);
 
