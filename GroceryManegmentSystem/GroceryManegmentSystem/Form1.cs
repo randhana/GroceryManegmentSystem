@@ -13,6 +13,7 @@ namespace GroceryManegmentSystem
     public partial class Form1 : Form
     {
         public string billname;
+
         public Form1()
         {
             InitializeComponent();
@@ -31,7 +32,8 @@ namespace GroceryManegmentSystem
 
             MessageBox.Show("Client name:" +s );
             axAcroPDF1.src = "C:\\Users\\pulat\\Downloads\\C# Stock project6\\System 1\\GroceryManegmentSystem\\GroceryManegmentSystem\\bin\\Debug\\"+s+".pdf";
-            axAcroPDF1.Show();
+            
+	    axAcroPDF1.Show();
             billname = " ";
 
             return null;
