@@ -19,6 +19,7 @@ namespace GroceryManegmentSystem
         String findId = "0";
         String findcategoryId = "0";
         public Stock_Keeper()
+
         {
             InitializeComponent();
         }
