@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -74,7 +75,7 @@ namespace GroceryManegmentSystem
 
 
 
-            //    //connection.Close();
+            //    connection.Close();
 
 
             //    string sql = "SELECT * FROM Cashier  where BDate Between @date1 and @date2";
