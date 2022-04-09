@@ -31,6 +31,7 @@ namespace GroceryManegmentSystem
 
         
         public Cashier()
+
         {
 
             
@@ -82,6 +83,7 @@ namespace GroceryManegmentSystem
                 OleDbDataAdapter da = new OleDbDataAdapter(command);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
+
                 dataGridView2.DataSource = dt;
 
                 connection.Close();

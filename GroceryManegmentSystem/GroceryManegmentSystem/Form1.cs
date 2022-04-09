@@ -17,6 +17,7 @@ namespace GroceryManegmentSystem
         public Form1()
         {
             InitializeComponent();
+
         }
 
 
@@ -41,6 +42,7 @@ namespace GroceryManegmentSystem
         }
 
         private void button1_Click(object sender, EventArgs e)
+
         {
             
            
