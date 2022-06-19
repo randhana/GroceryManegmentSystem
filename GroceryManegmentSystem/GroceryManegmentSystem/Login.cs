@@ -27,8 +27,8 @@ namespace GroceryManegmentSystem
             MySql.Data.MySqlClient.MySqlConnection conn;
             string myConnectionString;
 
-            myConnectionString = "server=127.0.0.1;uid=root;" +
-                "pwd=null;database=stockdb";
+            myConnectionString = "server=localhost;uid=root;" +
+                "pwd=1234;database=stockdb";
 
             try
             {
@@ -36,6 +36,7 @@ namespace GroceryManegmentSystem
                 conn.ConnectionString = myConnectionString;
                 conn.Open();
                 MessageBox.Show("Connected");
+                
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
