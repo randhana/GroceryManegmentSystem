@@ -24,10 +24,10 @@ namespace GroceryManegmentSystem
 
         private void btnlogin_Click(object sender, EventArgs e)
         {
-            
-            
 
-           
+
+            RefreshUserTable();
+
 
 
 
@@ -46,7 +46,7 @@ namespace GroceryManegmentSystem
             //else if (IsUsername(txtusername.Text))
             //{
             //  //  MessageBox.Show(" Valid usernamme");
-                RefreshUserTable();
+            RefreshUserTable();
             //}
             //else
             //{
@@ -62,10 +62,10 @@ namespace GroceryManegmentSystem
         }
         public void RefreshUserTable() {
 
-            string sql_admin = " SELECT * FROM users WHERE Username = 'admin'  ";
-            string sql_cashier = " SELECT * FROM users WHERE Username = 'cashier'  ";
-
+            string sql_admin = " SELECT * FROM users ";
             
+
+
             MySql.Data.MySqlClient.MySqlConnection conn;
             string myConnectionString;
 
@@ -77,31 +77,35 @@ namespace GroceryManegmentSystem
                 conn = new MySql.Data.MySqlClient.MySqlConnection();
                 conn.ConnectionString = myConnectionString;
                 MySqlCommand cmd = new MySqlCommand(sql_admin, conn);
+                
+
                 conn.Open();
 
                 MySqlDataReader reader = cmd.ExecuteReader();
+                
                 while (reader.Read())
                 {
-                    // MessageBox.Show("username - " + reader.GetString("Username").ToString());
                     
-                    MessageBox.Show("passwd - " + Decrypt(reader.GetString("PIN").ToString()));
+
+                    //  MessageBox.Show("passwd - " + Decrypt(reader.GetString("PIN").ToString()));
 
                     if ((txtusername.Text == reader.GetString("Username").ToString()) && (txtpassword.Text == Decrypt(reader.GetString("PIN").ToString())))
 
                     {
 
+
                         if (txtusername.Text == ("admin") & txtpassword.Text == Decrypt(reader.GetString("PIN").ToString()))
                         {
-                            MessageBox.Show("Worked! ");
+                            
 
 
-                           //this.Visible = false;
-                           // Admin admin = new Admin();
-                           // admin.Show();
+                            this.Visible = false;
+                            Admin admin = new Admin();
+                            admin.Show();
                             break;
 
                         }
-                        if (txtusername.Text == ("Stock keeper") & txtpassword.Text == Decrypt(reader[2].ToString()))
+                        if (txtusername.Text == ("stock keeper") & txtpassword.Text == Decrypt(reader.GetString("PIN").ToString()))
                         {
                             this.Visible = false;
                             Stock_Keeper stock_Keeper = new Stock_Keeper();
@@ -109,8 +113,9 @@ namespace GroceryManegmentSystem
                             stock_Keeper.LoadStockTableData();
                             break;
                         }
-                        if (txtusername.Text == ("Cashier") & txtpassword.Text == Decrypt(reader[2].ToString()))
+                        if (txtusername.Text == ("cashier") & txtpassword.Text == Decrypt(reader.GetString("PIN").ToString()))
                         {
+                            
                             this.Visible = false;
                             Cashier cashier = new Cashier();
                             cashier.Show();
