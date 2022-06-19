@@ -26,7 +26,7 @@ namespace GroceryManegmentSystem
         {
 
 
-            RefreshUserTable();
+            
 
 
 
@@ -37,24 +37,24 @@ namespace GroceryManegmentSystem
 
 
 
-            //if ((txtusername.Text.Trim() == string.Empty) || (txtpassword.Text.Trim() == string.Empty))
-            //{
+            if ((txtusername.Text.Trim() == string.Empty) || (txtpassword.Text.Trim() == string.Empty))
+            {
 
-            //    MessageBox.Show(" Please enter usernamme & password");
-            //}
+                MessageBox.Show(" Please enter usernamme & password");
+            }
 
-            //else if (IsUsername(txtusername.Text))
-            //{
-            //  //  MessageBox.Show(" Valid usernamme");
-            RefreshUserTable();
-            //}
-            //else
-            //{
-            //    MessageBox.Show(" Invalid usernamme");
-            //   // MessageBox.Show(Decrypt("MA=="));
+            else if (IsUsername(txtusername.Text))
+            {
+                //  MessageBox.Show(" Valid usernamme");
+                RefreshUserTable();
+            }
+            else
+            {
+                MessageBox.Show(" Invalid usernamme");
+                // MessageBox.Show(Decrypt("MA=="));
 
 
-            //}
+            }
 
 
 
