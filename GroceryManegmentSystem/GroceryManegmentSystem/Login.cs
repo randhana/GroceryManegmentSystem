@@ -24,19 +24,6 @@ namespace GroceryManegmentSystem
 
         private void btnlogin_Click(object sender, EventArgs e)
         {
-
-
-            
-
-
-
-
-
-
-
-
-
-
             if ((txtusername.Text.Trim() == string.Empty) || (txtpassword.Text.Trim() == string.Empty))
             {
 
@@ -86,9 +73,6 @@ namespace GroceryManegmentSystem
                 while (reader.Read())
                 {
                     
-
-                    //  MessageBox.Show("passwd - " + Decrypt(reader.GetString("PIN").ToString()));
-
                     if ((txtusername.Text == reader.GetString("Username").ToString()) && (txtpassword.Text == Decrypt(reader.GetString("PIN").ToString())))
 
                     {
@@ -97,8 +81,6 @@ namespace GroceryManegmentSystem
                         if (txtusername.Text == ("admin") & txtpassword.Text == Decrypt(reader.GetString("PIN").ToString()))
                         {
                             
-
-
                             this.Visible = false;
                             Admin admin = new Admin();
                             admin.Show();
@@ -131,19 +113,7 @@ namespace GroceryManegmentSystem
             }
 
 
-           
-
-                
-                
-
-
-
-
-
-
-
-
-
+     
             }
             
             
