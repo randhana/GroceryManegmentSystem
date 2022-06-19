@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,20 +24,26 @@ namespace GroceryManegmentSystem
 
         private void btnlogin_Click(object sender, EventArgs e)
         {
-
+            string sql = " SELECT * FROM users  ";
             MySql.Data.MySqlClient.MySqlConnection conn;
             string myConnectionString;
 
-            myConnectionString = "server=localhost;uid=root;" +
+            myConnectionString = "server=localhost ;uid=root;" +
                 "pwd=1234;database=stockdb";
 
             try
             {
                 conn = new MySql.Data.MySqlClient.MySqlConnection();
                 conn.ConnectionString = myConnectionString;
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
                 conn.Open();
-                MessageBox.Show("Connected");
-                
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    MessageBox.Show("username - " + reader.GetString("Username").ToString());
+                    MessageBox.Show("passwd - " + reader.GetString("PIN").ToString());
+                }
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
