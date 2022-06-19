@@ -23,36 +23,59 @@ namespace GroceryManegmentSystem
 
         private void btnlogin_Click(object sender, EventArgs e)
         {
-            
-           
 
+            MySql.Data.MySqlClient.MySqlConnection conn;
+            string myConnectionString;
 
-            if ((txtusername.Text.Trim() == string.Empty) || (txtpassword.Text.Trim() == string.Empty))
+            myConnectionString = "server=127.0.0.1;uid=root;" +
+                "pwd=null;database=stockdb";
+
+            try
             {
-
-                MessageBox.Show(" Please enter usernamme & password");
+                conn = new MySql.Data.MySqlClient.MySqlConnection();
+                conn.ConnectionString = myConnectionString;
+                conn.Open();
+                MessageBox.Show("Connected");
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
             }
 
-            else if (IsUsername(txtusername.Text))
-            {
-              //  MessageBox.Show(" Valid usernamme");
-                RefreshUserTable();
-            }
-            else
-            {
-                MessageBox.Show(" Invalid usernamme");
-               // MessageBox.Show(Decrypt("MA=="));
 
 
-            }
 
-            
+
+
+
+
+
+            //if ((txtusername.Text.Trim() == string.Empty) || (txtpassword.Text.Trim() == string.Empty))
+            //{
+
+            //    MessageBox.Show(" Please enter usernamme & password");
+            //}
+
+            //else if (IsUsername(txtusername.Text))
+            //{
+            //  //  MessageBox.Show(" Valid usernamme");
+            //    RefreshUserTable();
+            //}
+            //else
+            //{
+            //    MessageBox.Show(" Invalid usernamme");
+            //   // MessageBox.Show(Decrypt("MA=="));
+
+
+            //}
+
+
 
 
         }
         public void RefreshUserTable() {
 
-            OleDbConnection connection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\pulat\Downloads\C# Stock project6\System 1\DB.accdb");
+            OleDbConnection connection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\pulat\Downloads\C#\GroceryManegmentSystem\GroceryManegmentSystem\DB.accdb");
             connection.Open();
             OleDbDataReader reader = null;
             OleDbCommand command = new OleDbCommand("SELECT  * from  Users", connection);
