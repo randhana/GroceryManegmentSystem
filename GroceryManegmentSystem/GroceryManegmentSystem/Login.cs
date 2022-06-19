@@ -24,31 +24,10 @@ namespace GroceryManegmentSystem
 
         private void btnlogin_Click(object sender, EventArgs e)
         {
-            string sql = " SELECT * FROM users  ";
-            MySql.Data.MySqlClient.MySqlConnection conn;
-            string myConnectionString;
 
-            myConnectionString = "server=localhost ;uid=root;" +
-                "pwd=1234;database=stockdb";
 
-            try
-            {
-                conn = new MySql.Data.MySqlClient.MySqlConnection();
-                conn.ConnectionString = myConnectionString;
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                conn.Open();
+            RefreshUserTable();
 
-                MySqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    MessageBox.Show("username - " + reader.GetString("Username").ToString());
-                    MessageBox.Show("passwd - " + reader.GetString("PIN").ToString());
-                }
-            }
-            catch (MySql.Data.MySqlClient.MySqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
 
 
 
@@ -67,7 +46,7 @@ namespace GroceryManegmentSystem
             //else if (IsUsername(txtusername.Text))
             //{
             //  //  MessageBox.Show(" Valid usernamme");
-            //    RefreshUserTable();
+            RefreshUserTable();
             //}
             //else
             //{
@@ -83,51 +62,78 @@ namespace GroceryManegmentSystem
         }
         public void RefreshUserTable() {
 
-            OleDbConnection connection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\pulat\Downloads\C#\GroceryManegmentSystem\GroceryManegmentSystem\DB.accdb");
-            connection.Open();
-            OleDbDataReader reader = null;
-            OleDbCommand command = new OleDbCommand("SELECT  * from  Users", connection);
-            reader = command.ExecuteReader();
+            string sql_admin = " SELECT * FROM users ";
+            
 
-           
-            while (reader.Read())
 
+            MySql.Data.MySqlClient.MySqlConnection conn;
+            string myConnectionString;
+
+            myConnectionString = "server=localhost ;uid=root;" +
+                "pwd=1234;database=stockdb";
+
+            try
             {
-                //string d = reader[2].ToString();
-                //MessageBox.Show(Decrypt(d));
-                //MessageBox.Show(Decrypt(d));
-                //String userdata = "User: " + reader[1].ToString() + "\npass: " + reader[2].ToString();
+                conn = new MySql.Data.MySqlClient.MySqlConnection();
+                conn.ConnectionString = myConnectionString;
+                MySqlCommand cmd = new MySqlCommand(sql_admin, conn);
+                
 
-                if ( (txtusername.Text == reader[1].ToString()) && (txtpassword.Text == Decrypt(reader[2].ToString())) )
+                conn.Open();
 
+                MySqlDataReader reader = cmd.ExecuteReader();
+                
+                while (reader.Read())
                 {
                     
-                    if (txtusername.Text == ("admin") & txtpassword.Text == Decrypt(reader[2].ToString()))
+
+                    //  MessageBox.Show("passwd - " + Decrypt(reader.GetString("PIN").ToString()));
+
+                    if ((txtusername.Text == reader.GetString("Username").ToString()) && (txtpassword.Text == Decrypt(reader.GetString("PIN").ToString())))
+
                     {
 
-                        this.Visible = false;
-                        Admin admin = new Admin();
-                        admin.Show();
-                        break;
 
-                    }
-                    if (txtusername.Text == ("Stock keeper") & txtpassword.Text == Decrypt(reader[2].ToString()))
-                    {
-                        this.Visible = false;
-                        Stock_Keeper stock_Keeper = new Stock_Keeper();
-                        stock_Keeper.Show();
-                        stock_Keeper.LoadStockTableData();
-                        break;
-                    }
-                    if (txtusername.Text == ("Cashier") & txtpassword.Text == Decrypt(reader[2].ToString()))
-                    {
-                        this.Visible = false;
-                        Cashier cashier = new Cashier();
-                        cashier.Show();
-                        cashier.LoadStockTableData();
-                        break;
+                        if (txtusername.Text == ("admin") & txtpassword.Text == Decrypt(reader.GetString("PIN").ToString()))
+                        {
+                            
+
+
+                            this.Visible = false;
+                            Admin admin = new Admin();
+                            admin.Show();
+                            break;
+
+                        }
+                        if (txtusername.Text == ("stock keeper") & txtpassword.Text == Decrypt(reader.GetString("PIN").ToString()))
+                        {
+                            this.Visible = false;
+                            Stock_Keeper stock_Keeper = new Stock_Keeper();
+                            stock_Keeper.Show();
+                            stock_Keeper.LoadStockTableData();
+                            break;
+                        }
+                        if (txtusername.Text == ("cashier") & txtpassword.Text == Decrypt(reader.GetString("PIN").ToString()))
+                        {
+                            
+                            this.Visible = false;
+                            Cashier cashier = new Cashier();
+                            cashier.Show();
+                            cashier.LoadStockTableData();
+                            break;
+                        }
                     }
                 }
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+           
+
+                
                 
 
 
@@ -139,14 +145,9 @@ namespace GroceryManegmentSystem
 
 
             }
-            //RefreshUserTable();
-
-
-             connection.Close();
             
-           // RefreshUserTable();
             
-        }
+        
 
         public static bool IsUsername(string username)
         {
