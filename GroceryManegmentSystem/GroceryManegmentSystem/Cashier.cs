@@ -71,22 +71,25 @@ namespace GroceryManegmentSystem
         {
             try
             {
-                OleDbConnection connection = new OleDbConnection(@"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = C:\Users\pulat\Downloads\C#\GroceryManegmentSystem\GroceryManegmentSystem\DB.accdb");
-                connection.Open();
-                OleDbCommand command = new OleDbCommand();
+               String query = "select * from stock";
+              // MySql.Data.MySqlClient.MySqlConnection conn;
+               string myConnectionString;
 
-                command.Connection = connection;
+                myConnectionString = "server=localhost ;uid=root;" + "pwd='';database=stockdb";
 
-                String query = "select * from Stock";
-                command.CommandText = query;
+                using (MySql.Data.MySqlClient.MySqlConnection conn = new MySql.Data.MySqlClient.MySqlConnection(myConnectionString))
+                {
+                    using (MySql.Data.MySqlClient.MySqlDataAdapter adapter = new MySql.Data.MySqlClient.MySqlDataAdapter(query, conn))
+                    {
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        dataGridView2.DataSource = ds.Tables[0];
+                    }
+                }
 
-                OleDbDataAdapter da = new OleDbDataAdapter(command);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
+               
 
-                dataGridView2.DataSource = dt;
-
-                connection.Close();
+              
             }
             catch (Exception ex)
             {
@@ -428,5 +431,5 @@ namespace GroceryManegmentSystem
 
         }
     }
-}
+}  
 

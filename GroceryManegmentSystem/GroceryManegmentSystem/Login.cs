@@ -57,7 +57,7 @@ namespace GroceryManegmentSystem
             string myConnectionString;
 
             myConnectionString = "server=localhost ;uid=root;" +
-                "pwd=1234;database=stockdb";
+                "pwd='';database=stockdb";
 
             try
             {
@@ -76,7 +76,7 @@ namespace GroceryManegmentSystem
                     if ((txtusername.Text == reader.GetString("Username").ToString()) && (txtpassword.Text == Decrypt(reader.GetString("PIN").ToString())))
 
                     {
-
+  
 
                         if (txtusername.Text == ("admin") & txtpassword.Text == Decrypt(reader.GetString("PIN").ToString()))
                         {
