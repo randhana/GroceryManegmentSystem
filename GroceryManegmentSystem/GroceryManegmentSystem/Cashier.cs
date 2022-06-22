@@ -111,12 +111,7 @@ namespace GroceryManegmentSystem
         {
             string indexId = sendFindId(findId);
             string Quantity = sendQuantity(findQuantity);
-            OleDbConnection connection = new OleDbConnection(@"Provider = Microsoft.ACE.OLEDB.12.0; Data Source =C:\Users\pulat\Downloads\C#\GroceryManegmentSystem\GroceryManegmentSystem\DB.accdb");
-
-            connection.Open();
-
-            OleDbConnection connection1 = new OleDbConnection(@"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = C:\Users\pulat\Downloads\C#\GroceryManegmentSystem\GroceryManegmentSystem\DB.accdb");
-            connection1.Open();
+            
             if (txtClientCas.Text == " ")
             {
                 MessageBox.Show("Enter Client Name");
