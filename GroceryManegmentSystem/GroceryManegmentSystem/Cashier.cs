@@ -126,12 +126,14 @@ namespace GroceryManegmentSystem
                     String item = txtItemNameCas.Text.ToString();
                     String quantity = txtQuantityCas.Text.ToString();
                     String price = txtPriceCas.Text.ToString();
-                    string bdate= DateTime.Now.ToString("M/d/yyyy");
+                    string bdate= DateTime.Now.ToString("yyyy/M/d");
 
-                    int newQuantity = 0;
+                   
+
+                   int newQuantity = 0;
                     newQuantity = Int32.Parse(Quantity) - Int32.Parse(quantity);
 
-                    MessageBox.Show("new Q="+ newQuantity.ToString());
+                   // MessageBox.Show("new Q="+ newQuantity.ToString());
 
                     
 
@@ -146,18 +148,27 @@ namespace GroceryManegmentSystem
                     String my_querry1 = "UPDATE Stock set Quantity='" + newQuantity + "' where Id=" + indexId + " ";
 
                     MySqlConnection MyConn2 = new MySqlConnection(myConnectionString);
+                    MySqlConnection MyConn1 = new MySqlConnection(myConnectionString);
+
                     //This is command class which will handle the query and connection object.
                     MySqlCommand MyCommand2 = new MySqlCommand(my_querry1, MyConn2);
+                    MySqlCommand MyCommand3 = new MySqlCommand(my_querry, MyConn1);
                     MySqlDataReader MyReader2;
+                    
+
                     MyConn2.Open();
+                    MyConn1.Open();
+                    MySqlDataReader MyReader1;
                     MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.
-                   
+                    MyReader1 = MyCommand3.ExecuteReader();
 
 
 
                     MessageBox.Show("Data saved successfuly...!");
                     //this.stockTableAdapter.Fill(this.dBDataSet.Stock); 
                     //Load all data from table 
+                    MyConn2.Close();
+                    MyConn1.Close();
                     LoadStockTableData();
 
                     ClearTextBoxs();
@@ -385,7 +396,7 @@ namespace GroceryManegmentSystem
         }
         private void btnNewCustomer_Click(object sender, EventArgs e)
         {
-            txtBilingCas.Text= DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
+            txtBilingCas.Text= DateTime.Now.ToString("yyyy/MM/dd hh:mm tt");
             txtBilingCas.Enabled = false;
             txtClientCas.Text = " ";
             groupBox1.Enabled = true;
@@ -413,9 +424,9 @@ namespace GroceryManegmentSystem
         {
            
             groupBox1.Enabled = false;
-            dataGridView2.Enabled = false;
             dgvCashierbill.DataSource = " ";
             lblamount.Text = "-------------- ";
+            dataGridView2.Enabled = false;
             PrintList.Clear();
             
 
