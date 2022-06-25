@@ -104,7 +104,7 @@ namespace GroceryManegmentSystem
             {
 
                 
-                OleDbConnection connection = new OleDbConnection(@"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = C:\Users\pulat\Downloads\C# Stock project6\System 1\DB.accdb");
+                OleDbConnection connection = new OleDbConnection(@"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = C:\Users\pulat\Downloads\C#\GroceryManegmentSystem\GroceryManegmentSystem\DB.accdb");
                 connection.Open();
                 OleDbCommand command = new OleDbCommand();
                 command.Connection = connection;

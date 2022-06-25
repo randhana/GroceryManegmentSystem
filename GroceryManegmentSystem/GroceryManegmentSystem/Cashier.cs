@@ -14,7 +14,7 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.text.html.simpleparser;
 using System.Collections;
-
+using MySql.Data.MySqlClient;
 
 namespace GroceryManegmentSystem
 {
@@ -71,22 +71,25 @@ namespace GroceryManegmentSystem
         {
             try
             {
-                OleDbConnection connection = new OleDbConnection(@"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = C:\Users\pulat\Downloads\C# Stock project6\System 1\DB.accdb");
-                connection.Open();
-                OleDbCommand command = new OleDbCommand();
+               String query = "select * from stock";
+              // MySql.Data.MySqlClient.MySqlConnection conn;
+               string myConnectionString;
 
-                command.Connection = connection;
+                myConnectionString = "server=localhost ;uid=root;" + "pwd='';database=stockdb";
 
-                String query = "select * from Stock";
-                command.CommandText = query;
+                using (MySql.Data.MySqlClient.MySqlConnection conn = new MySql.Data.MySqlClient.MySqlConnection(myConnectionString))
+                {
+                    using (MySql.Data.MySqlClient.MySqlDataAdapter adapter = new MySql.Data.MySqlClient.MySqlDataAdapter(query, conn))
+                    {
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        dataGridView2.DataSource = ds.Tables[0];
+                    }
+                }
 
-                OleDbDataAdapter da = new OleDbDataAdapter(command);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
+               
 
-                dataGridView2.DataSource = dt;
-
-                connection.Close();
+              
             }
             catch (Exception ex)
             {
@@ -108,12 +111,7 @@ namespace GroceryManegmentSystem
         {
             string indexId = sendFindId(findId);
             string Quantity = sendQuantity(findQuantity);
-            OleDbConnection connection = new OleDbConnection(@"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = C:\Users\pulat\Downloads\C# Stock project6\System 1\DB.accdb");
-
-            connection.Open();
-
-            OleDbConnection connection1 = new OleDbConnection(@"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = C:\Users\pulat\Downloads\C# Stock project6\System 1\DB.accdb");
-            connection1.Open();
+            
             if (txtClientCas.Text == " ")
             {
                 MessageBox.Show("Enter Client Name");
@@ -128,31 +126,49 @@ namespace GroceryManegmentSystem
                     String item = txtItemNameCas.Text.ToString();
                     String quantity = txtQuantityCas.Text.ToString();
                     String price = txtPriceCas.Text.ToString();
-                    string bdate= DateTime.Now.ToString("M/d/yyyy");
+                    string bdate= DateTime.Now.ToString("yyyy/M/d");
 
-                    int newQuantity = 0;
+                   
+
+                   int newQuantity = 0;
                     newQuantity = Int32.Parse(Quantity) - Int32.Parse(quantity);
 
-                    MessageBox.Show("new Q="+ newQuantity.ToString());
+                   // MessageBox.Show("new Q="+ newQuantity.ToString());
 
                     
 
                     arrayPDF(item,quantity,price);
-                  
 
+                    string myConnectionString;
+                    myConnectionString = "server=localhost ;uid=root;" +
+                "pwd='';database=stockdb";
 
-                    String my_querry = "INSERT INTO Cashier(ClientName,BDate,BillingDate,Item,Quantity,Price)VALUES('" + client + "','" + bdate + "','" + billing + "','" + item + "','" + quantity + "','" + price + "')";
+                    String my_querry = "INSERT INTO Cashier(ClientName,BillDate,BillingDateTime,Item,Quantity,Price)VALUES('" + client + "','" + bdate + "','" + billing + "','" + item + "','" + quantity + "','" + price + "')";
                     
                     String my_querry1 = "UPDATE Stock set Quantity='" + newQuantity + "' where Id=" + indexId + " ";
 
-                    OleDbCommand cmd = new OleDbCommand(my_querry, connection);
-                    OleDbCommand cmd1 = new OleDbCommand(my_querry1, connection1);
-                    cmd.ExecuteNonQuery();
-                    cmd1.ExecuteNonQuery();
+                    MySqlConnection MyConn2 = new MySqlConnection(myConnectionString);
+                    MySqlConnection MyConn1 = new MySqlConnection(myConnectionString);
+
+                    //This is command class which will handle the query and connection object.
+                    MySqlCommand MyCommand2 = new MySqlCommand(my_querry1, MyConn2);
+                    MySqlCommand MyCommand3 = new MySqlCommand(my_querry, MyConn1);
+                    MySqlDataReader MyReader2;
+                    
+
+                    MyConn2.Open();
+                    MyConn1.Open();
+                    MySqlDataReader MyReader1;
+                    MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.
+                    MyReader1 = MyCommand3.ExecuteReader();
+
+
 
                     MessageBox.Show("Data saved successfuly...!");
                     //this.stockTableAdapter.Fill(this.dBDataSet.Stock); 
                     //Load all data from table 
+                    MyConn2.Close();
+                    MyConn1.Close();
                     LoadStockTableData();
 
                     ClearTextBoxs();
@@ -165,8 +181,7 @@ namespace GroceryManegmentSystem
                 }
                 finally
                 {
-                    connection.Close();
-                    connection1.Close();
+                    
                 }
 
                 LoadCashierTableData();
@@ -314,7 +329,7 @@ namespace GroceryManegmentSystem
             {
                 String client = txtClientCas.Text.ToString();
                 String billing = txtBilingCas.Text.ToString();
-                OleDbConnection connection = new OleDbConnection(@"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = C:\Users\pulat\Downloads\C# Stock project6\System 1\DB.accdb");
+                OleDbConnection connection = new OleDbConnection(@"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = C:\Users\pulat\Downloads\C#\GroceryManegmentSystem\GroceryManegmentSystem\DB.accdb");
                 connection.Open();
                 OleDbCommand command = new OleDbCommand();
                 command.Connection = connection;
@@ -381,7 +396,7 @@ namespace GroceryManegmentSystem
         }
         private void btnNewCustomer_Click(object sender, EventArgs e)
         {
-            txtBilingCas.Text= DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
+            txtBilingCas.Text= DateTime.Now.ToString("yyyy/MM/dd hh:mm tt");
             txtBilingCas.Enabled = false;
             txtClientCas.Text = " ";
             groupBox1.Enabled = true;
@@ -409,9 +424,9 @@ namespace GroceryManegmentSystem
         {
            
             groupBox1.Enabled = false;
-            dataGridView2.Enabled = false;
             dgvCashierbill.DataSource = " ";
             lblamount.Text = "-------------- ";
+            dataGridView2.Enabled = false;
             PrintList.Clear();
             
 
@@ -428,5 +443,5 @@ namespace GroceryManegmentSystem
 
         }
     }
-}
+}  
 
