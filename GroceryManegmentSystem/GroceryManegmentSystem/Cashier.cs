@@ -143,10 +143,8 @@ namespace GroceryManegmentSystem
                     
                     String my_querry1 = "UPDATE Stock set Quantity='" + newQuantity + "' where Id=" + indexId + " ";
 
-                    OleDbCommand cmd = new OleDbCommand(my_querry, connection);
-                    OleDbCommand cmd1 = new OleDbCommand(my_querry1, connection1);
-                    cmd.ExecuteNonQuery();
-                    cmd1.ExecuteNonQuery();
+                    
+                    
 
                     MessageBox.Show("Data saved successfuly...!");
                     //this.stockTableAdapter.Fill(this.dBDataSet.Stock); 
@@ -163,8 +161,7 @@ namespace GroceryManegmentSystem
                 }
                 finally
                 {
-                    connection.Close();
-                    connection1.Close();
+                    
                 }
 
                 LoadCashierTableData();
