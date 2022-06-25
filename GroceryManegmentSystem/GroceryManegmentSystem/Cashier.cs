@@ -14,7 +14,7 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.text.html.simpleparser;
 using System.Collections;
-
+using MySql.Data.MySqlClient;
 
 namespace GroceryManegmentSystem
 {
@@ -136,15 +136,24 @@ namespace GroceryManegmentSystem
                     
 
                     arrayPDF(item,quantity,price);
-                  
 
+                    string myConnectionString;
+                    myConnectionString = "server=localhost ;uid=root;" +
+                "pwd='';database=stockdb";
 
-                    String my_querry = "INSERT INTO Cashier(ClientName,BDate,BillingDate,Item,Quantity,Price)VALUES('" + client + "','" + bdate + "','" + billing + "','" + item + "','" + quantity + "','" + price + "')";
+                    String my_querry = "INSERT INTO Cashier(ClientName,BillDate,BillingDateTime,Item,Quantity,Price)VALUES('" + client + "','" + bdate + "','" + billing + "','" + item + "','" + quantity + "','" + price + "')";
                     
                     String my_querry1 = "UPDATE Stock set Quantity='" + newQuantity + "' where Id=" + indexId + " ";
 
-                    
-                    
+                    MySqlConnection MyConn2 = new MySqlConnection(myConnectionString);
+                    //This is command class which will handle the query and connection object.
+                    MySqlCommand MyCommand2 = new MySqlCommand(my_querry1, MyConn2);
+                    MySqlDataReader MyReader2;
+                    MyConn2.Open();
+                    MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.
+                   
+
+
 
                     MessageBox.Show("Data saved successfuly...!");
                     //this.stockTableAdapter.Fill(this.dBDataSet.Stock); 

@@ -59,6 +59,7 @@ namespace GroceryManegmentSystem
             myConnectionString = "server=localhost ;uid=root;" +
                 "pwd='';database=stockdb";
 
+
             try
             {
                 conn = new MySql.Data.MySqlClient.MySqlConnection();
