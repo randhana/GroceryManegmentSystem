@@ -54,49 +54,7 @@ namespace GroceryManegmentSystem
         {
 
 
-            //try
-            //{
-            //    OleDbConnection connection = new OleDbConnection(@"Provider = Microsoft.ACE.OLEDB.12.0; Data Source =C:\Users\pulat\Downloads\C# Stock project6\System 1\DB.accdb");
-            //    connection.Open();
-            //    OleDbCommand command = new OleDbCommand();
-            //    command.Connection = connection;
-            //    //String query = "select * from Stock";
-            //    //command.CommandText = query;
-
-            //       OleDbDataAdapter da = new OleDbDataAdapter(command);
-            //        DataTable dt = new DataTable();
-            //    //    da.Fill(dt);
-
-            //    //    dataGridView1.Visible = true;
-
-            //    //dataGridView1.DataSource = dt;
-
-
-
-
-
-            //    connection.Close();
-
-
-            //    string sql = "SELECT * FROM Cashier  where BDate Between @date1 and @date2";
-            // //  string sql = "SELECT * FROM Users ";
-            //    OleDbDataAdapter da = new OleDbDataAdapter(sql, connection);
-            //    da.SelectCommand.Parameters.AddWithValue("@data1", dateTimePicker1.Value);
-            //    da.SelectCommand.Parameters.AddWithValue("@data2", dateTimePicker2.Value);
-            //    da.Fill(dt);
-
-
-
-            //    dataGridView1.DataSource = dt;
-            //    connection.Close();
-
-
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Error " + ex);
-
-            //}
+            
 
 
 
