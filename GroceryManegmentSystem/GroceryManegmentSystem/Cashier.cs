@@ -131,7 +131,7 @@ namespace GroceryManegmentSystem
                    int newQuantity = 0;
                     newQuantity = Int32.Parse(Quantity) - Int32.Parse(quantity);
 
-                   // MessageBox.Show("new Q="+ newQuantity.ToString());
+                   
 
                     
 
