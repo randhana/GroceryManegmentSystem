@@ -34,8 +34,7 @@ namespace GroceryManegmentSystem
 
         {
 
-            
-             InitializeComponent();
+        InitializeComponent();
         }
         
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -139,7 +138,7 @@ namespace GroceryManegmentSystem
 
                     string myConnectionString;
                     myConnectionString = "server=localhost ;uid=root;" +
-                "pwd='';database=stockdb";
+                                                                         "pwd='';database=stockdb";
 
                     String my_querry = "INSERT INTO Cashier(ClientName,BillDate,BillingDateTime,Item,Quantity,Price)VALUES('" + client + "','" + bdate + "','" + billing + "','" + item + "','" + quantity + "','" + price + "')";
                     
@@ -163,8 +162,7 @@ namespace GroceryManegmentSystem
 
 
                     MessageBox.Show("Data saved successfuly...!");
-                    //this.stockTableAdapter.Fill(this.dBDataSet.Stock); 
-                    //Load all data from table 
+                    
                     MyConn2.Close();
                     MyConn1.Close();
                     LoadStockTableData();
