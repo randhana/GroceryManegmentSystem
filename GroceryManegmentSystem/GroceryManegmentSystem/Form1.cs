@@ -20,8 +20,7 @@ namespace GroceryManegmentSystem
 
         }
 
-
-        public void Clientname(string s)
+	 public void Clientname(string s)
         {
              billname = s;
             
