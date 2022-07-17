@@ -27,10 +27,6 @@ namespace GroceryManegmentSystem
         private void Stock_Keeper_Load(object sender, EventArgs e)
         {
 
-
-
-
-
         }
 
         private void btnSave_Click(object sender, EventArgs e)
